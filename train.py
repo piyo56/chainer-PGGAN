@@ -36,8 +36,9 @@ def train():
     parser.add_argument('--out', '-o', type=str, default='img/')
     parser.add_argument('--num', '-n', type=int, default=10)
     args = parser.parse_args()
-
-    train = dataset.YuiDataset(directory=args.dir, depth=args.depth)
+    
+    # train = dataset.YuiDataset(directory=args.dir, depth=args.depth)
+    train = dataset.CelebADataset(directory=args.dir, depth=args.depth)
     train_iter = iterators.SerialIterator(train, batch_size=args.batch)
 
     gen = network.Generator(depth=args.depth)
